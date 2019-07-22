@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+__author__ = "Benjamin Cornwell"
+
 #yu yu hakusho - s1 = 25  | s2 = 41 | s3 = 28 | s4 = 18
 
 import os
