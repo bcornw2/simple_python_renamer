@@ -11,7 +11,7 @@ def main():
 
 
 	seasonRange = []
-	threeDigits = None
+	threeDigits = False
 
 	title = raw_input("Enter formatted title for show: ")
 	print("Title is: " + title)
@@ -40,7 +40,7 @@ def main():
 			if threeDigits == True:
 				dst = os.path.join(filepath, title + "_S" + "%02d" % (x+1) + "E" + "%03d" % (y+1) + ".mkv")
 			else:
-				dst = os.path.join(filepath, title + "_S" + "%02d" % (x+1) + "E" + "%03d" % (y+1) + ".mkv")
+				dst = os.path.join(filepath, title + "_S" + "%02d" % (x+1) + "E" + "%02d" % (y+1) + ".mkv")
 			src = os.path.join(filepath, list[i])
 			print("DST :::" + dst)
 			os.rename(src, dst)
