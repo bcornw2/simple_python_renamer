@@ -22,3 +22,4 @@ To run:
 Pre-conditions: 
  - Python3 is installed
  - The code is run on Linux or MacOS
+ - The files are sorted in an ascending order. 01 - XX
