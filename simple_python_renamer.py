@@ -18,6 +18,8 @@ def main():
 	print("Seasons num: " + str(seasons))
 	for i in range(0,seasons):
 		srange = input("How many episodes are in season " + str(i+1) + "?: ")
+		if srange > 99:
+			threedigits = true
 		seasonRange.append(srange)
 
 	print(seasonRange)
@@ -32,7 +34,7 @@ def main():
 		ind = seasonRange[x]
 		for y in range (ind):
 			src = os.path.join(filepath, list[i])
-			dst = os.path.join(filepath, title + "__S" + "%02d" % (x+1) + "E" "%02d" % (y+1) + ".mkv")
+			dst = os.path.join(filepath, title + "_S" + "%02d" % (x+1) + "E" "%02d" % (y+1) + ".mkv")
 			print("DST :::" + dst)
 			os.rename(src, dst)
 			i=i+1
