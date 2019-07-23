@@ -9,17 +9,20 @@ import os.path
 
 def main():
 
+
+	seasonRange = []
+	threeDigits = None
+
 	title = raw_input("Enter formatted title for show: ")
 	print("Title is: " + title)
 	filepath = raw_input("Enter non-relative file path for data location: ")
 	print(filepath)
 	seasons = input("How many seasons? : ")
-	seasonRange = []
 	print("Seasons num: " + str(seasons))
 	for i in range(0,seasons):
 		srange = input("How many episodes are in season " + str(i+1) + "?: ")
 		if srange > 99:
-			threedigits = true
+			threedigits = True
 		seasonRange.append(srange)
 
 	print(seasonRange)
@@ -33,8 +36,12 @@ def main():
 		print("doing season " + str(x+1) + "...")
 		ind = seasonRange[x]
 		for y in range (ind):
+
+			if threeDigits == True:
+				dst = os.path.join(filepath, title + "_S" + "%02d" % (x+1) + "E" + "%03d" % (y+1) + ".mkv")
+			else:
+				dst = os.path.join(filepath, title + "_S" + "%02d" % (x+1) + "E" + "%03d" % (y+1) + ".mkv")
 			src = os.path.join(filepath, list[i])
-			dst = os.path.join(filepath, title + "_S" + "%02d" % (x+1) + "E" "%02d" % (y+1) + ".mkv")
 			print("DST :::" + dst)
 			os.rename(src, dst)
 			i=i+1
