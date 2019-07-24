@@ -6,8 +6,6 @@ __author__ = "Benjamin Cornwell"
 
 import os
 import errno
-import re
-import glob
 from natsort import natsorted, ns
 
 def main():
@@ -25,14 +23,8 @@ def main():
 
 	list = os.listdir(filepath)
 	fileCount = len(list)
-#	list.sort()
-
 	list = natsorted(list, key=lambda y: y.lower())
 	print(list)
-
-#	sortlist = re.compile(list)
-#	def tokenize(
-
 
 	try:
 		year = int(input("Optional: Enter the Year of production - ex. \"2008\" : "))
@@ -76,9 +68,6 @@ def main():
 
 	print("This is the file list: ")
 	print(list)	
-#	print(" ========== GLOB METHOD ========= ")
-#	print(glob.glob(filepath)
-#	print(" ========== GLOB METHOD ========= ")
 
 	for i in range(0,seasons):
 		srange = int(input("How many episodes are in season " + str(i+1) + "?: "))
@@ -90,9 +79,7 @@ def main():
 	print(seasonRange)
 
 	i=0
-#	current directory = filepath
 	for x in range (0,seasons):
-##		os.chdir('Season {}'.format(x+1))
 		thisSeason = 'Season_{}'.format(x+1)
 		workingDir = os.path.join(filepath,titleDir,thisSeason)
 		a = 0
@@ -113,14 +100,8 @@ def main():
 			print("SRC ::: " + src)
 			print("list[i]: " + list[i])
 			os.rename(src, dst)
-			# move to new sub-sub directory (depth=2) - currently at filepath depth
-			# mv src=/filepath/tg_s1e01.mkv dst=/filepath/titleDir/Season\ (x+1)
-			#os.mv(
 			print("new file: " + list[i])
 			i=i+1
-
-#	A whole separate set of nested for loops for file movement?
-#	or can they be moved after rename while in the filepath directory?
 
 if __name__ == '__main__':
 	main()
